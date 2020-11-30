@@ -1,0 +1,47 @@
+<script>
+    function usersName(login, password, fullName) {
+        return {
+            login: login,
+            password: password,
+            fullName: fullName
+        }
+    }
+    var users = [
+        usersName("elaman", "eee123", "Toktoshev_Elaman"),
+        usersName("omka", "omka123", "Kamalova_Omka"),
+        usersName("azim", "azim123", "Kalmurzaev_Azim"),
+        usersName("baiaman", "baiaman123", "Gafarov_Baiaman")
+    ];
+    var whatToDo = prompt("login(1) or register(2)")
+    if (whatToDo == 1) {
+        var login = prompt("login");
+        var password = prompt("password");
+        var author = null;
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].login == login) {
+                author = users[i];
+                // document.write();
+                break;
+            }
+        };
+        if (author != null) {
+            if (author.password == password) {
+                document.write("welcome! " + users[i].fullName)
+            } else {
+                document.write("password is not correct")
+            }
+        } else {
+            document.write("login did not find!")
+        }
+    } else {
+        var login = prompt("login")
+        var password = prompt("password")
+        var fullName = prompt("name")
+        var new1 = usersName(login, password, fullName);
+        users.push(new1);
+        document.write("new user created" + "<br>");
+        for (var i = 0; i < users.length; i++) {
+            document.write(users[i].fullName + "<br>");
+        }
+    }
+</script>
